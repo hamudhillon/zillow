@@ -1,0 +1,43 @@
+<html>
+<title>Posted Data</title>
+<head><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="/static/css/myfile.css">
+</head>
+<body>
+{% csrf_token %}
+
+  <h6 class="display-4">Welcome To The Records!</h6>
+  <p class="lead">Thank You For Your Intrest.</p>
+
+
+<table border="1" class="table table-striped table-dark">
+        <thead>
+         <tr><td>User id</td><td>Title</td>
+            <td>Username</td>
+
+             <td>Action1</td>
+             <td>Action2</td>
+        </tr>
+        </thead>
+        <tbody>
+        {% for user in all_users%}
+            <tr><td>
+                    {{user.id}}</td>
+                <td>{{user.username}}</td>
+                <td>{{user.last_name}}</td>
+                <td><a href="/dellist/?id={{user.id}}" class="btn btn-danger">Delete</a></td>
+
+                <!--<td><a href="/update/?id={{blogs.id}}" class="btn btn-primary">Update</a></td>-->
+            </tr>
+                {% endfor %}
+            </tbody></table>
+<hr class="my-4">
+{% if msg1 %}
+    <div class="alert alert-danger">{{msg1}}</div>
+{%endif%}
+<a href="/post/" class="btn btn-primary btn-lg btn-block">Go Back To Home</a>
+<a href="/list/" class="btn btn-secondary btn-lg btn-block">Refresh Your Results</a>
+
+
+</body>
+</html>

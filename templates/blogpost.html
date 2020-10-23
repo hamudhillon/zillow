@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!--<link rel="stylesheet" href="/static/css/div.css">-->
+    <title>Welcome Page</title>
+
+</head>
+<body>
+
+
+<div class="jumbotron">
+<small class="alert alert-success" style="float:right">Logged in User is {{request.user.username}}</small>
+
+  <h1 class="display-4" style="color:whit">Welcome To Bloggers Page!</h1>
+
+  <p class="lead" style="color:whit">Write Your Blogs Here!!</p>
+
+    <form action= "/postblog/" method="post">
+     {% csrf_token %}
+
+    <div class="form-row align-items-center">
+  <input type="text" class="form-control form-control-lg" placeholder="Title" aria-label="Title" aria-describedby="basic-addon1" name="txt_title">
+</div><br>
+    <div class="form-row align-items-center">
+  <input type="text" class="form-control form-control-lg" placeholder="Description" aria-label="Description" aria-describedby="basic-addon1" name="txt_desc">
+</div><br>
+
+       <button class="btn btn-success" type="submit" >Save</button>
+
+        <!--<input type="submit" value="SUBMIT" onclick="return validate();">-->
+        <a href="/list/" class="btn btn-success">List</a>
+        <!--<a href="/register/" class="btn btn-warning">Register</a>-->
+        <br><br>
+
+        {% if msg1 %}
+    <div class="alert alert-success">{{msg1}}</div>
+{%endif%}
+
+</form>
+  <hr class="my-4" >
+    <a class="btn btn-primary btn-lg btn-block" href="/logout/" role="button">Logout</a>
+
+
+</div>
+
+
+
+<script src="{%static '/js/jj.js'%}"></script>
+<script src="{%static '/js/staticfile.js'%}"></script>
+
+
+</body>
+</html>

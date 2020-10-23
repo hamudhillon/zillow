@@ -1,0 +1,60 @@
+<html>
+<title>Users Page</title>
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/css/myfil.css">
+</head>
+
+<body>
+    {% csrf_token %}
+    <small class="alert alert-success" style="float:right">Logged in User is {{request.user.username}} and ID is
+        {{request.user.id}} </small>
+    <h6 class="display-4">Records!</h6>
+    <p class="lead">Thank You For Your Intrest.</p>
+
+
+
+    <table border="1" class="table table-striped table-dark">
+        <thead>
+            <tr>
+                <td>id</td>
+                <td>FirstName</td>
+                <td>E-mail</td>
+                <td>Date Joined</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for blogs in blogs_all%}
+            <tr>
+                <td>
+                    {{blogs.id}}</td>
+                <td>{{blogs.first_name}}</td>
+                <td>{{blogs.email}}</td>
+                <td>{{blogs.date_joined}}</td>
+
+                <td><a href="/update/?id={{blogs.id}}" class="btn btn-primary">Update</a></td>
+                <td><a href="/dellist/?id={{blogs.id}}" class="btn btn-danger">Delete</a></td>
+
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <hr class="my-4">
+    {% if msg1 %}
+    <small class="alert alert-danger">{{msg1}}</small>
+    {%endif%}
+
+    {% if msgnew %}
+    <small class="alert alert-danger">{{msgnew}}</small>
+    {%endif%}
+
+    <a href="/postblog/" class="btn btn-warning" style="float:right">Write More Blogs!</a>
+    <a href="/list/" class="btn btn-warning" style="float:center">Refresh Your Results</a>
+
+
+
+</body>
+
+</html>

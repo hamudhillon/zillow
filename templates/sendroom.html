@@ -1,0 +1,43 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Update Page!</title>
+</head>
+
+<body>
+    <div class="jumbotron">
+        <h1 class="display-4">Welcome To The SendRoom Page!</h1>
+
+        <form action="/sendroom/" method="post">
+            {% csrf_token %}
+
+            <input type="hidden" name="hdn_id" value="{{objblg.id}}">
+
+            <div class="form-row align-items-center">
+                <input type="text" class="form-control mb-2" placeholder="Room Id" aria-label="Title"
+                    aria-describedby="basic-addon1" name="txt_room" value="{{objblg.roomid}}">
+            </div>
+            <!-- <div class="form-row align-items-center">
+                <input type="text" class="form-control mb-2" placeholder="Description" aria-label="Description"
+                    aria-describedby="basic-addon1" name="txt_desc" value="{{objblg.description}}">
+            </div> -->
+
+
+            <!--<div class="form-row align-items-center">-->
+            <!--<input type="text" class="form-control mb-2" placeholder="Age" aria-label="Age" aria-describedby="basic-addon1" name="txt_age" value="{{objblog.age}}">-->
+            <!--</div><br>-->
+
+            <button class="btn btn-outline-success">Send</button>
+            <a href="/list/" class="btn btn-outline-primary">List</a>
+        </form>
+
+        {% if msg1 %}
+        <small class="alert alert-success">{{msg1}}</small>
+        {%endif%}
+
+    </div>
+</body>
+
+</html>
