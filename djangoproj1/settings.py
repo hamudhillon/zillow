@@ -26,7 +26,7 @@ SECRET_KEY = 'qcvuz*m&5ccw+*t5ny686o_8(_==@4&ee=p_qi01)k_w3*-+!k'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -80,7 +80,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'czbot',
-        'HOST': 'Localhost',
+        'HOST': 'localhost',
         'USER': 'root',
         'PASSWORD':''
 
