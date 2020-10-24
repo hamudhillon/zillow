@@ -135,7 +135,6 @@ def ProcessCsvFiles(request):
         return render(request, "upload_csv.html", data)
     # if not GET, then proceed with processing
     try:
-
         csv_file = request.FILES["csv_file"]
         print(csv_file)
         if not csv_file.name.endswith('.csv'):
@@ -153,8 +152,8 @@ def ProcessCsvFiles(request):
             for line in lines:
                 print(line)
                 import json
-                data=json.dumps(zillow_get(line))
-                print(type(data))
+                data=zillow_get(line)
+                # print(type(data))
                 print(data)
             return HttpResponse(data)
             

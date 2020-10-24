@@ -78,11 +78,11 @@ WSGI_APPLICATION = 'djangoproj1.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'django.db.backends.mysql.postgresql_psycopg2',
         'NAME': 'czbot',
         'HOST': 'localhost',
-        'USER': 'root',
-        'PASSWORD':''
+        'USER': 'zillowuser',
+        'PASSWORD':'z8xNdpirbALrPpjm1ipZ'
 
     }
 }
